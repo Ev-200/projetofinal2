@@ -15,10 +15,17 @@ class Lamp {
 
     clicked() {
         if (dist(mouseX, mouseY, this.xLamp, this.yLamp) < this.size) {
-            coverDisplay = true
+            coverDisplay = true;
+            lightDisplay = false;
 
         }
 
+    }
+
+    displayLampLight() {
+        fill(200, 240, 255, 70)
+
+        ellipse(this.xLamp + 5, this.yLamp, 300, 300)
     }
 }
 
@@ -38,5 +45,13 @@ class LampCover {
         ellipse(50, 50, 70, 70);
         pop()
     }
+
+    displayCoverLight() {
+
+        fill(200, 240, 255, 70)
+        quad(45, 284, 150, 284, 180, 700, 0, 700)
+    }
+
+
 }
 

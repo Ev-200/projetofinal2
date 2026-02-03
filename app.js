@@ -1,5 +1,5 @@
 let coverDisplay = false
-
+let lightDisplay = true
 let lamp_1;
 let cover_1;
 let xLamp;
@@ -26,12 +26,33 @@ function draw() {
     pop()
     //draw ground
 
+
+
     lamp_1.displayLamp();
+
+
 
     if (coverDisplay == true) {
         cover_1.displayCover();
+        cover_1.displayCoverLight();
     }
+
+    if (lightDisplay == true) {
+        lamp_1.displayLampLight();
+
+    }
+
+
+
 }
+
+displayStars(){
+    fill(255, 255, 255)
+    text(' ✶', 50, 50)
+}
+
+
+
 
 function mousePressed() {
     lamp_1.clicked();
