@@ -47,7 +47,7 @@ class LampCover {
     }
 
     displayCoverLight() {
-
+        translate(this.x, this.y)
         fill(200, 240, 255, 70)
         quad(45, 284, 150, 284, 180, 700, 0, 700)
     }

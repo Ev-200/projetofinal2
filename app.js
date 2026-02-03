@@ -1,7 +1,11 @@
 let coverDisplay = false
 let lightDisplay = true
+
 let lamp_1;
 let cover_1;
+let lamp_2;
+let cover_2;
+
 let xLamp;
 let yLamp;
 
@@ -11,6 +15,9 @@ function setup() {
 
     lamp_1 = new Lamp(90, 220, 450)
     cover_1 = new LampCover(15, 100)
+
+    lamp_2 = new Lamp(270, 220, 480)
+    cover_2 = new LampCover(135, 100)
 
 
 }
@@ -30,25 +37,40 @@ function draw() {
 
     lamp_1.displayLamp();
 
+    lamp_2.displayLamp();
+
 
 
     if (coverDisplay == true) {
         cover_1.displayCover();
         cover_1.displayCoverLight();
+
+        cover_2.displayCover();
+        cover_2.displayCoverLight();
     }
 
     if (lightDisplay == true) {
         lamp_1.displayLampLight();
 
+        lamp_2.displayLampLight();
+
     }
 
 
 
+
+    for (i = 0; i < 15; i++) {
+        displayStar(0 + i * (70 + i * 6), 100)
+    }
+
+
 }
 
-displayStars(){
+function displayStar(x, y) {
+    xStar = x
+    yStar = y
     fill(255, 255, 255)
-    text(' ✶', 50, 50)
+    text(' ✶', xStar, yStar)
 }
 
 
@@ -56,6 +78,8 @@ displayStars(){
 
 function mousePressed() {
     lamp_1.clicked();
+
+    lamp_2.clicked();
 }
 
 
