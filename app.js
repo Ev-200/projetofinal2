@@ -13,17 +13,21 @@ function setup() {
     createCanvas(windowWidth, windowHeight);
     angleMode(DEGREES);
 
+
     lamp_1 = new Lamp(90, 220, 450)
     cover_1 = new LampCover(15, 100)
 
     lamp_2 = new Lamp(270, 220, 480)
-    cover_2 = new LampCover(135, 100)
+    cover_2 = new LampCover(135, 95)
 
 
 }
 
 function draw() {
-    background(19, 24, 84);
+    let b = map(0, windowHeight, 0, 0, 170);
+    //trying to make background gradient, b = blue
+
+    background(19, 24, 92);
     fill(49, 51, 50)
     push()
     rotate(10)
@@ -56,7 +60,7 @@ function draw() {
 
     }
 
-
+    //display lightposts and lights
 
 
     for (i = 0; i < 15; i++) {
@@ -64,15 +68,17 @@ function draw() {
     }
 
 
+
 }
 
 function displayStar(x, y) {
     xStar = x
     yStar = y
-    fill(255, 255, 255)
+    fill(255)
     text(' ✶', xStar, yStar)
 }
 
+//stars
 
 
 
