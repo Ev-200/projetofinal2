@@ -30,9 +30,18 @@ class Lamp {
 }
 
 class LampCover {
-    constructor(x, y) {
-        this.x = x
-        this.y = y
+    constructor(x1, y1, x2, y2, x3, y3, x4, y4) {
+        this.x1 = x1
+        this.y1 = y1
+        this.x2 = x2
+        this.y2 = y2
+        this.x3 = x3
+        this.y3 = y3
+        this.x4 = x4
+        this.y4 = y4
+
+
+
     }
 
     displayCover() {
@@ -42,7 +51,9 @@ class LampCover {
         scale(1.5)
         // translate(this.x, this.y)
         // quad(20, 40, 80, 40, 100, 90, 0, 90);
-        quad(35, 130, 95, 130, 115, 180, 15, 180);
+
+        // quad(35, 130, 95, 130, 115, 180, 15, 180);
+        quad(this.x1, this.y1, this.x2, this.y2, this.x3, this.y3, this.x4, this.y4)
         ellipse(65, 140, 70, 70);
         pop()
     }
