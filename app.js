@@ -13,6 +13,8 @@ let cover_4;
 let xLamp;
 let yLamp;
 
+let diameter = 300
+
 function setup() {
     createCanvas(windowWidth, windowHeight);
     angleMode(DEGREES);
@@ -104,7 +106,7 @@ function draw() {
     for (i = 0; i < 15; i++) {
         displayStar(0 + i * (70 + i * 6), 100)
         displayStar(30 + i * (100 + i * 10), 30 + i * (10 + i * 4))
-        displayStar(30 + i * (100 + i * 10), 100 + i * (10 + i * 4))
+        displayStar(30 + i * (100 + i * 10), 100 + i * (1 + i * 2))
     }
 
 }
@@ -123,7 +125,7 @@ function LampTest(x, y, height) {
 
     fill(200, 240, 255, 70)
 
-    ellipse(lampX + 5, lampY, 300, 300)
+    ellipse(lampX + 5, lampY, diameter, diameter)
     fill(49, 51, 50)
     rect(lampX, lampY, 15, lampHeight, 0, 0, 5, 5)
     fill(220, 240, 200)
@@ -138,16 +140,20 @@ function LampTest(x, y, height) {
 
 
 
+
+
 function mousePressed() {
 
-    if (mouseX > 0 && mouseX < 10) {
-        if (mouseY > 0 && mouseY < 10) {
-            console.log("test");
+    if (mouseX > lampX - diameter / 2 && mouseX < lampX + diameter / 2) {
+        console.log("test");
+        if (mouseY > lampY - diameter / 2 && mouseY < lampY + diameter / 2) {
+
             coverDisplay = true
         }
     }
 
 }
+//trying to analise the location of the lamp to click
 //test
 
 // function mousePressed() {
