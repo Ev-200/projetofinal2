@@ -40,8 +40,9 @@ class LampCover {
         fill(49, 51, 50)
         noStroke()
         scale(1.5)
-        translate(this.x, this.y)
-        quad(20, 40, 80, 40, 100, 90, 0, 90);
+        // translate(this.x, this.y)
+        // quad(20, 40, 80, 40, 100, 90, 0, 90);
+        quad(435, 130, 100, 130, 120, 180, 20, 180);
         ellipse(50, 50, 70, 70);
         pop()
     }

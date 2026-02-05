@@ -1,4 +1,4 @@
-let coverDisplay = false
+let coverDisplay = true
 let lightDisplay = true
 
 let lamp_1;
@@ -15,10 +15,10 @@ function setup() {
 
 
     lamp_1 = new Lamp(90, 220, 450)
-    cover_1 = new LampCover(15, 100)
+    cover_1 = new LampCover(-10, 100)
 
     lamp_2 = new Lamp(270, 220, 480)
-    cover_2 = new LampCover(135, 95)
+    cover_2 = new LampCover(165, 95)
 
 
 }
