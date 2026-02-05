@@ -18,7 +18,7 @@ function setup() {
     cover_1 = new LampCover(35, 130, 95, 130, 115, 180, 15, 180)
 
     lamp_2 = new Lamp(270, 220, 480)
-    cover_2 = new LampCover(135, 230, 295, 230, 215, 280, 215, 280)
+    cover_2 = new LampCover(155, 130, 215, 130, 215, 180, 115, 180)
 
 
 }
