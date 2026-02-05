@@ -40,8 +40,6 @@ class LampCover {
         this.x4 = x4
         this.y4 = y4
 
-
-
     }
 
     displayCover() {
@@ -61,6 +59,8 @@ class LampCover {
         quad(this.x1, this.y1 + 50, this.x2, this.y2 + 50, this.x3 + 15, this.y3 + 320, this.x4 - 15, this.y4 + 320)
         pop()
     }
+
+
 
     displayCoverLight() {
         push()

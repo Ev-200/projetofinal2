@@ -1,4 +1,4 @@
-let coverDisplay = true
+let coverDisplay = false
 let lightDisplay = true
 
 let lamp_1;
@@ -7,6 +7,8 @@ let lamp_2;
 let cover_2;
 let lamp_3;
 let cover_3;
+let lamp_4;
+let cover_4;
 
 let xLamp;
 let yLamp;
@@ -23,8 +25,15 @@ function setup() {
     cover_2 = new LampCover(155, 130, 215, 130, 235, 180, 135, 180)
 
     lamp_3 = new Lamp(450, 220, 510)
-    cover_3 = new LampCover(275, 130, 330, 130, 355, 180, 255, 180)
+    cover_3 = new LampCover(275, 130, 335, 130, 355, 180, 255, 180)
 
+    lamp_4 = new Lamp(630, 220, 540)
+    cover_4 = new LampCover(395, 130, 455, 130, 475, 180, 375, 180)
+    // lamp  (+180, +0,+30)
+    //lampcover (+120,+0,+120,+0 +120,+0,+120,+0)
+
+    lamp_4 = new Lamp(630, 220, 540)
+    cover_4 = new LampCover(330, 130,)
 }
 
 function draw() {
@@ -49,7 +58,7 @@ function draw() {
 
     lamp_3.displayLamp();
 
-
+    lamp_4.displayLamp();
 
     if (coverDisplay == true) {
         cover_1.displayCover();
@@ -60,7 +69,11 @@ function draw() {
 
         cover_3.displayCover();
         cover_3.displayCoverLight();
+
+        cover_4.displayCover();
+        cover_4.displayCoverLight();
     }
+
 
     if (lightDisplay == true) {
         lamp_1.displayLampLight();
@@ -69,34 +82,82 @@ function draw() {
 
         lamp_3.displayLampLight();
 
+        lamp_4.displayLampLight();
+
     }
+
+
 
     //display lightposts and lights
 
-
     for (i = 0; i < 15; i++) {
-        displayStar(0 + i * (70 + i * 6), 100)
+
+        LampTest(20 + i * (200 + i * 4), 280, 400 + i * 30,);
+
+
     }
 
 
+    //test
+
+    //stars
+    for (i = 0; i < 15; i++) {
+        displayStar(0 + i * (70 + i * 6), 100)
+        displayStar(30 + i * (100 + i * 10), 30 + i * (10 + i * 4))
+        displayStar(30 + i * (100 + i * 10), 100 + i * (10 + i * 4))
+    }
 
 }
-
 function displayStar(x, y) {
     xStar = x
     yStar = y
     fill(255)
     text(' ✶', xStar, yStar)
 }
-
 //stars
+
+function LampTest(x, y, height) {
+    lampX = x;
+    lampY = y;
+    lampHeight = height;
+
+    fill(200, 240, 255, 70)
+
+    ellipse(lampX + 5, lampY, 300, 300)
+    fill(49, 51, 50)
+    rect(lampX, lampY, 15, lampHeight, 0, 0, 5, 5)
+    fill(220, 240, 200)
+    ellipse(lampX + 5, lampY, 90, 90)
+
+    //     return lampX
+    //     console.log("test");
+    //     return lampY
+    //     console.log(xLamp)
+    //     console.log(yLamp)
+}
 
 
 
 function mousePressed() {
-    lamp_1.clicked();
 
-    lamp_2.clicked();
+    if (mouseX > 0 && mouseX < 10) {
+        if (mouseY > 0 && mouseY < 10) {
+            console.log("test");
+            coverDisplay = true
+        }
+    }
+
 }
+//test
+
+// function mousePressed() {
+//     lamp_1.clicked();
+
+//     lamp_2.clicked();
+
+//     lamp_3.clicked();
+
+//     lamp_4.clicked();
+// }
 
 
