@@ -42,16 +42,16 @@ class LampCover {
         scale(1.5)
         // translate(this.x, this.y)
         // quad(20, 40, 80, 40, 100, 90, 0, 90);
-        quad(435, 130, 100, 130, 120, 180, 20, 180);
-        ellipse(50, 50, 70, 70);
+        quad(35, 130, 95, 130, 115, 180, 15, 180);
+        ellipse(65, 140, 70, 70);
         pop()
     }
 
     displayCoverLight() {
         push()
-        translate(this.x, this.y)
+        // translate(this.x, this.y)
         fill(200, 240, 255, 70)
-        quad(60, 184, 160, 184, 180, 700, 0, 700)
+        quad(50, 270, 150, 270, 170, 800, -10, 800)
         pop()
     }
 
