@@ -1,76 +1,73 @@
 class Lamp {
-    constructor(xLamp, yLamp, height) {
-        this.xLamp = xLamp;
-        this.yLamp = yLamp;
+    constructor(x, y, height) {
+        this.x = x;
+        this.y = y;
         this.height = height;
         this.size = 90;
+        this.isLit = true
+
     }
 
     displayLamp() {
+
         fill(49, 51, 50)
-        rect(this.xLamp, this.yLamp, 15, this.height, 0, 0, 5, 5)
+        rect(this.x, this.y, 15, this.height, 0, 0, 5, 5)
         fill(220, 240, 200)
-        ellipse(this.xLamp + 5, this.yLamp, this.size, this.size)
+        ellipse(this.x + 5, this.y, this.size, this.size)
+
+        if (this.isLit) {
+            this.displayLampLight()
+        } else {
+            this.displayCover()
+        }
     }
 
     clicked() {
-        if (dist(mouseX, mouseY, this.xLamp, this.yLamp) < this.size) {
-            coverDisplay = true;
-            lightDisplay = false;
+        if (dist(mouseX, mouseY, this.x, this.y) < this.size) {
+            this.isLit = false
 
         }
 
     }
+    // steps 
+
+    //make lamps
+    //work on stars
+    //time counter +sounds
+
+    // if lamp_1.!isLit && lamp_2 !isLit (etc) then run drawStars (or stars.visible = true)
+    // drawStars and stars.visible don't exist yet 
+    //
 
     displayLampLight() {
         fill(200, 240, 255, 70)
 
-        ellipse(this.xLamp + 5, this.yLamp, 300, 300)
-    }
-}
-
-class LampCover {
-    constructor(x1, y1, x2, y2, x3, y3, x4, y4) {
-        this.x1 = x1
-        this.y1 = y1
-        this.x2 = x2
-        this.y2 = y2
-        this.x3 = x3
-        this.y3 = y3
-        this.x4 = x4
-        this.y4 = y4
-
+        ellipse(this.x + 5, this.y, 300, 300)
     }
 
     displayCover() {
-        push()
+        let x1 = this.x - 55
+        let y1 = this.y
+        let x2 = x1 + 110
+        let y2 = y1
+        let x3 = x1 + 130
+        let y3 = y1 + 70
+        let x4 = x1 - 20
+        let y4 = y1 + 70
+        let beamWidth = 30
+
         fill(49, 51, 50)
         noStroke()
-        scale(1.5)
-        // translate(this.x, this.y)
-        // quad(20, 40, 80, 40, 100, 90, 0, 90);
-
-        // quad(35, 130, 95, 130, 115, 180, 15, 180);
-        quad(this.x1, this.y1, this.x2, this.y2, this.x3, this.y3, this.x4, this.y4)
-        ellipse(this.x1 + 30, this.y1 + 10, 70, 70);
+        //cover and cover circle
+        quad(x1, y1, x2, y2, x3, y3, x4, y4)
+        ellipse(this.x, this.y, 110, 110);
 
         fill(200, 240, 255, 70)
-        //  quad(35, 180, 95, 180, 130, 500, 0, 500)
-        quad(this.x1, this.y1 + 50, this.x2, this.y2 + 50, this.x3 + 15, this.y3 + 320, this.x4 - 15, this.y4 + 320)
-        pop()
+        //light beam
+        quad(x4, y4, x3, y3, x3 + beamWidth, y3 + this.height, x4 - beamWidth, y4 + this.height)
+        stroke(1)
     }
-
-
-
-    displayCoverLight() {
-        push()
-        // translate(this.x, this.y)
-        // fill(200, 240, 255, 70)
-        // quad(50, 270, 150, 270, 170, 800, -10, 800)
-        pop()
-    }
-
-
-
 }
+
+
 
