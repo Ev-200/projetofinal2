@@ -21,6 +21,8 @@ let playsom = false;
 
 let avancarNoise = 1
 
+let volumeSom = 0
+
 
 
 // let xLamp;
@@ -74,10 +76,17 @@ function draw() {
     }
 
     if (counter - time > 8000 && playsom == false && lamp_1.isLit == false && lamp_2.isLit == false && lamp_3.isLit == false && lamp_4.isLit == false && lamp_5.isLit == false && lamp_6.isLit == false && lamp_7.isLit == false && lamp_8.isLit == false && lamp_9.isLit == false && lamp_10.isLit == false && lamp_11.isLit == false) {
-        sound.play();
+        //    setInterval
+
         sound.loop();
-        sound.setVolume(1.0, 50, 0);
         playsom = true
+
+    }
+
+    if (playsom && volumeSom < 1) {
+        volumeSom = volumeSom + 0.001
+        sound.setVolume(volumeSom);
+
     }
     // if (counter - time > 5000 && playsom == false) {
     //     sound.play();
