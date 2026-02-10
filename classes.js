@@ -9,7 +9,7 @@ class Lamp {
     }
 
     displayLamp() {
-
+        //lamp pole + circle
         fill(49, 51, 50)
         rect(this.x, this.y, 15, this.height, 0, 0, 5, 5)
         fill(220, 240, 200)
@@ -29,13 +29,6 @@ class Lamp {
         }
 
     }
-
-
-    //time counter +sounds
-
-
-
-
 
     displayLampLight() {
         fill(200, 240, 255, 70)

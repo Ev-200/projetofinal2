@@ -31,7 +31,7 @@ function setup() {
     createCanvas(windowWidth, windowHeight);
     angleMode(DEGREES);
 
-
+    //create lamps
     lamp_1 = new Lamp(90, 270, 450 - 30)
     lamp_2 = new Lamp(270, 270, 480 - 30)
     lamp_3 = new Lamp(450, 270, 510 - 30)
@@ -67,8 +67,11 @@ function draw() {
     // }
     if (counter - time > 5000) {
         sound.play();
+        //console.log('test')
     }
 
+
+    //draw ground
     background(19, 24, 92);
     fill(49, 51, 50)
     push()
@@ -83,6 +86,8 @@ function draw() {
         drawStars();
     }
 
+
+    //display lightposts and lights
     lamp_1.displayLamp();
     lamp_2.displayLamp();
     lamp_3.displayLamp();
@@ -94,25 +99,21 @@ function draw() {
     lamp_9.displayLamp();
     lamp_10.displayLamp();
     lamp_11.displayLamp();
-
-
-
-
     //display lightposts and lights
 
 
 
 
 }
+
+//stars
 function displayStar(x, y) {
     xStar = x
     yStar = y
     fill(255)
     text(' ✶', xStar, yStar)
 }
-//stars
 
-//stars
 function drawStars() {
     for (i = 0; i < 15; i++) {
         displayStar(0 + i * (70 + i * 6), 100)
@@ -125,12 +126,13 @@ function drawStars() {
         displayStar(0 + i * (100 + i * 10), 250 + i * (5 + i * 2))
     }
 }
+//stars
 
 
 
 
 function mousePressed() {
-
+    //turn lights off/cover lights
     lamp_1.clicked();
     lamp_2.clicked();
     lamp_3.clicked();
@@ -142,8 +144,6 @@ function mousePressed() {
     lamp_9.clicked();
     lamp_10.clicked();
     lamp_11.clicked();
-
-
 }
 
 // if (lamp_1.!isLit) {
