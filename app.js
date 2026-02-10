@@ -11,10 +11,15 @@ let lamp_9;
 let lamp_10;
 let lamp_11;
 
+
+
 let time;
 let counter;
 
 let sound;
+let playsom = false;
+
+let avancarNoise = 1
 
 
 
@@ -46,10 +51,11 @@ function setup() {
 
     // lamp  (+180, +0,+30)
 
+
     time = millis();
     counter = millis();
 
-    //let myVolume = (i = 0., i < 1., i++)
+    //let myVolume = 0,(i = 0., i < 1., i++)
     //sound.setVolume(myVolume)
 
 
@@ -61,14 +67,24 @@ function draw() {
     let b = map(0, windowHeight, 0, 0, 170);
     //trying to make background gradient, b = blue
 
-    // if (counter - time > 5000 && lamp_1.isLit == false && lamp_2.isLit == false && lamp_3.isLit == false && lamp_4.isLit == false && lamp_5.isLit == false && lamp_6.isLit == false && lamp_7.isLit == false && lamp_8.isLit == false && lamp_9.isLit == false && lamp_10.isLit == false && lamp_11.isLit == false) {
+    //if all lamps off, then start time count. (set time 0), if 5 seconds passed then play sound
+
+    if (lamp_1.isLit == false && lamp_2.isLit == false && lamp_3.isLit == false && lamp_4.isLit == false && lamp_5.isLit == false && lamp_6.isLit == false && lamp_7.isLit == false && lamp_8.isLit == false && lamp_9.isLit == false && lamp_10.isLit == false && lamp_11.isLit == false) {
+
+    }
+
+    if (counter - time > 8000 && playsom == false && lamp_1.isLit == false && lamp_2.isLit == false && lamp_3.isLit == false && lamp_4.isLit == false && lamp_5.isLit == false && lamp_6.isLit == false && lamp_7.isLit == false && lamp_8.isLit == false && lamp_9.isLit == false && lamp_10.isLit == false && lamp_11.isLit == false) {
+        sound.play();
+        sound.loop();
+        sound.setVolume(1.0, 50, 0);
+        playsom = true
+    }
+    // if (counter - time > 5000 && playsom == false) {
     //     sound.play();
     //     sound.loop();
+    //     playsom = true
+    //     //console.log('test')
     // }
-    if (counter - time > 5000) {
-        sound.play();
-        //console.log('test')
-    }
 
 
     //draw ground
@@ -102,6 +118,22 @@ function draw() {
     //display lightposts and lights
 
 
+    if (lamp_1.isLit == false && lamp_2.isLit == false && lamp_3.isLit == false && lamp_4.isLit == false && lamp_5.isLit == false && lamp_6.isLit == false && lamp_7.isLit == false && lamp_8.isLit == false && lamp_9.isLit == false && lamp_10.isLit == false && lamp_11.isLit == false) {
+        if (counter - time > 10000) {
+            displayBug(0, 200, 0.005, 0.05);
+            if (counter - time > 15000) {
+                displayBug(190, 300, 0.007, 0.07);
+                if (counter - time > 17000) {
+                    displayBug(1440, 150, 0.004, 0.04)
+                    if (counter - time > 20000) {
+                        displayBug(1600, 400, 0.005, 0.05)
+                    } if (counter - time > 24000) {
+                        displayBug(600, 300, 0.004, 0.04)
+                    }
+                }
+            }
+        }
+    }
 
 
 }
@@ -129,7 +161,17 @@ function drawStars() {
 //stars
 
 
-
+function displayBug(x, y, nD, nD2) {
+    xBug = x
+    Ybug = y
+    noiseDif = nD
+    noiseDif2 = nD2
+    let xNoise = 200 * noise(noiseDif * avancarNoise);
+    let yNoise = 100 * noise(noiseDif2 * avancarNoise);
+    avancarNoise++
+    fill(0)
+    ellipse(xNoise + x, yNoise + y, 3, 3)
+}
 
 function mousePressed() {
     //turn lights off/cover lights
