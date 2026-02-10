@@ -30,17 +30,12 @@ class Lamp {
 
     }
 
-    // steps 
 
-    //make lamps
-    //work on stars
     //time counter +sounds
 
 
 
-    // if lamp_1.!isLit && lamp_2 !isLit (etc) then run drawStars (or stars.visible = true)
-    // drawStars and stars.visible don't exist yet 
-    //
+
 
     displayLampLight() {
         fill(200, 240, 255, 70)
