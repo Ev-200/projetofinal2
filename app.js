@@ -71,9 +71,9 @@ function draw() {
 
     //if all lamps off, then start time count. (set time 0), if 5 seconds passed then play sound
 
-    if (lamp_1.isLit == false && lamp_2.isLit == false && lamp_3.isLit == false && lamp_4.isLit == false && lamp_5.isLit == false && lamp_6.isLit == false && lamp_7.isLit == false && lamp_8.isLit == false && lamp_9.isLit == false && lamp_10.isLit == false && lamp_11.isLit == false) {
+    // if (lamp_1.isLit == false && lamp_2.isLit == false && lamp_3.isLit == false && lamp_4.isLit == false && lamp_5.isLit == false && lamp_6.isLit == false && lamp_7.isLit == false && lamp_8.isLit == false && lamp_9.isLit == false && lamp_10.isLit == false && lamp_11.isLit == false) {
 
-    }
+    // }
 
     if (counter - time > 8000 && playsom == false && lamp_1.isLit == false && lamp_2.isLit == false && lamp_3.isLit == false && lamp_4.isLit == false && lamp_5.isLit == false && lamp_6.isLit == false && lamp_7.isLit == false && lamp_8.isLit == false && lamp_9.isLit == false && lamp_10.isLit == false && lamp_11.isLit == false) {
         //    setInterval
@@ -127,25 +127,30 @@ function draw() {
     //display lightposts and lights
 
 
-    if (lamp_1.isLit == false && lamp_2.isLit == false && lamp_3.isLit == false && lamp_4.isLit == false && lamp_5.isLit == false && lamp_6.isLit == false && lamp_7.isLit == false && lamp_8.isLit == false && lamp_9.isLit == false && lamp_10.isLit == false && lamp_11.isLit == false) {
-        if (counter - time > 10000) {
-            displayBug(0, 200, 0.005, 0.05);
-            if (counter - time > 15000) {
-                displayBug(190, 300, 0.007, 0.07);
-                if (counter - time > 17000) {
-                    displayBug(1440, 150, 0.004, 0.04)
-                    if (counter - time > 20000) {
-                        displayBug(1600, 400, 0.005, 0.05)
-                    } if (counter - time > 24000) {
-                        displayBug(600, 300, 0.004, 0.04)
-                    }
+}
+if (lamp_1.isLit == false && lamp_2.isLit == false && lamp_3.isLit == false && lamp_4.isLit == false && lamp_5.isLit == false && lamp_6.isLit == false && lamp_7.isLit == false && lamp_8.isLit == false && lamp_9.isLit == false && lamp_10.isLit == false && lamp_11.isLit == true) {
+    counter = millis()
+}
+
+if (lamp_1.isLit == false && lamp_2.isLit == false && lamp_3.isLit == false && lamp_4.isLit == false && lamp_5.isLit == false && lamp_6.isLit == false && lamp_7.isLit == false && lamp_8.isLit == false && lamp_9.isLit == false && lamp_10.isLit == false && lamp_11.isLit == false) {
+    if (counter - time > 10000) {
+        displayBug(0, 200, 0.005, 0.05);
+        if (counter - time > 15000) {
+            displayBug(190, 300, 0.007, 0.07);
+            if (counter - time > 17000) {
+                displayBug(1440, 150, 0.004, 0.04)
+                if (counter - time > 20000) {
+                    displayBug(1600, 400, 0.005, 0.05)
+                } if (counter - time > 24000) {
+                    displayBug(600, 300, 0.004, 0.04)
                 }
             }
         }
     }
-
-
 }
+
+
+
 
 //stars
 function displayStar(x, y) {
