@@ -15,6 +15,7 @@ let lamp_11;
 
 let time;
 let counter;
+let wordtimer;
 
 let sound;
 let playsom = false;
@@ -23,6 +24,10 @@ let avancarNoise = 1
 
 let volumeSom = 0
 
+let myTimeout
+
+let words = ['Clica', 'na', 'luz']
+let index = 0
 
 
 // let xLamp;
@@ -56,6 +61,8 @@ function setup() {
 
     time = millis();
     counter = millis();
+    wordtimer = millis()
+
 
     //let myVolume = 0,(i = 0., i < 1., i++)
     //sound.setVolume(myVolume)
@@ -67,20 +74,24 @@ function setup() {
 function draw() {
     counter = millis();
     let b = map(0, windowHeight, 0, 0, 170);
+
     //trying to make background gradient, b = blue
 
-    //if all lamps off, then start time count. (set time 0), if 5 seconds passed then play sound
+    //time for array of words
+    if (counter - wordtimer > 700) {
+        index += 1
+        wordtimer = millis()
+    }
+
+
 
     // if (lamp_1.isLit == false && lamp_2.isLit == false && lamp_3.isLit == false && lamp_4.isLit == false && lamp_5.isLit == false && lamp_6.isLit == false && lamp_7.isLit == false && lamp_8.isLit == false && lamp_9.isLit == false && lamp_10.isLit == false && lamp_11.isLit == false) {
-
     // }
 
+    //start sound after 8 secs & lights off
     if (counter - time > 8000 && playsom == false && lamp_1.isLit == false && lamp_2.isLit == false && lamp_3.isLit == false && lamp_4.isLit == false && lamp_5.isLit == false && lamp_6.isLit == false && lamp_7.isLit == false && lamp_8.isLit == false && lamp_9.isLit == false && lamp_10.isLit == false && lamp_11.isLit == false) {
-        //    setInterval
-
         sound.loop();
         playsom = true
-
     }
 
     if (playsom && volumeSom < 1) {
@@ -88,12 +99,7 @@ function draw() {
         sound.setVolume(volumeSom);
 
     }
-    // if (counter - time > 5000 && playsom == false) {
-    //     sound.play();
-    //     sound.loop();
-    //     playsom = true
-    //     //console.log('test')
-    // }
+
 
 
     //draw ground
@@ -107,6 +113,8 @@ function draw() {
     pop()
     //draw ground
 
+
+    //display stars when all lights off
     if (lamp_1.isLit == false && lamp_2.isLit == false && lamp_3.isLit == false && lamp_4.isLit == false && lamp_5.isLit == false && lamp_6.isLit == false && lamp_7.isLit == false && lamp_8.isLit == false && lamp_9.isLit == false && lamp_10.isLit == false && lamp_11.isLit == false) {
         drawStars();
     }
@@ -126,37 +134,37 @@ function draw() {
     lamp_11.displayLamp();
     //display lightposts and lights
 
+    //display words array
+    textSize(132);
+    text(words[index], width / 2 - 100, height / 2);
 
-}
-if (lamp_1.isLit == false && lamp_2.isLit == false && lamp_3.isLit == false && lamp_4.isLit == false && lamp_5.isLit == false && lamp_6.isLit == false && lamp_7.isLit == false && lamp_8.isLit == false && lamp_9.isLit == false && lamp_10.isLit == false && lamp_11.isLit == true) {
-    counter = millis()
-}
 
-if (lamp_1.isLit == false && lamp_2.isLit == false && lamp_3.isLit == false && lamp_4.isLit == false && lamp_5.isLit == false && lamp_6.isLit == false && lamp_7.isLit == false && lamp_8.isLit == false && lamp_9.isLit == false && lamp_10.isLit == false && lamp_11.isLit == false) {
-    if (counter - time > 10000) {
-        displayBug(0, 200, 0.005, 0.05);
-        if (counter - time > 15000) {
-            displayBug(190, 300, 0.007, 0.07);
-            if (counter - time > 17000) {
-                displayBug(1440, 150, 0.004, 0.04)
-                if (counter - time > 20000) {
-                    displayBug(1600, 400, 0.005, 0.05)
-                } if (counter - time > 24000) {
-                    displayBug(600, 300, 0.004, 0.04)
+    //showing the bugs after a certain amount of time
+    if (lamp_1.isLit == false && lamp_2.isLit == false && lamp_3.isLit == false && lamp_4.isLit == false && lamp_5.isLit == false && lamp_6.isLit == false && lamp_7.isLit == false && lamp_8.isLit == false && lamp_9.isLit == false && lamp_10.isLit == false && lamp_11.isLit == false) {
+        if (counter - time > 1000) {
+            displayBug(0, 200, 0.005, 0.05);
+            if (counter - time > 15000) {
+                displayBug(190, 300, 0.007, 0.07);
+                if (counter - time > 17000) {
+                    displayBug(1440, 150, 0.004, 0.04)
+                    if (counter - time > 20000) {
+                        displayBug(1600, 400, 0.005, 0.05)
+                    } if (counter - time > 24000) {
+                        displayBug(600, 300, 0.004, 0.04)
+                    }
                 }
             }
         }
     }
+
 }
-
-
-
 
 //stars
 function displayStar(x, y) {
     xStar = x
     yStar = y
     fill(255)
+    textSize(10)
     text(' ✶', xStar, yStar)
 }
 
@@ -174,7 +182,7 @@ function drawStars() {
 }
 //stars
 
-
+//bugs
 function displayBug(x, y, nD, nD2) {
     xBug = x
     Ybug = y
@@ -186,6 +194,7 @@ function displayBug(x, y, nD, nD2) {
     fill(0)
     ellipse(xNoise + x, yNoise + y, 3, 3)
 }
+//bugs
 
 function mousePressed() {
     //turn lights off/cover lights
