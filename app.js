@@ -26,7 +26,7 @@ let volumeSom = 0
 
 let myTimeout
 
-let words = ['Clica', 'na', 'luz']
+let words = ['Clique', 'na', 'luz']
 let index = 0
 
 
